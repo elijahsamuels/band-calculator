@@ -270,15 +270,7 @@ function Calculator() {
 								<option value="20">20%</option>
 							</select>
 							{" "}:</td>
-            <td>
-              <input
-								type="number"
-                disabled
-                name="completion-commission"
-                placeholder={`$${commission2}`}
-                onChange={(e) => setCommission2(e.target.value || 0)}
-              />
-            </td>
+            <td>${Math.floor((totalPriceMarkup - totalPrice)*(commissionBonus/100))}</td>
           </tr>
 
           <tr>
