@@ -18,7 +18,6 @@ function Calculator() {
   const [baseMusicianRateMarkup, setBaseMusicianRateMarkup] = useState(450);
 
   const [bandCost, setBandCost] = useState(
-		// console.log( typeof musicianCount, typeof baseMusicianRate, typeof musicianCount, typeof baseTravelCostPerMusician, typeof baseTravelTime, typeof soundsystemCost, typeof bandLeaderCost),
     (musicianCount * baseMusicianRate) + (musicianCount * baseTravelCostPerMusician * baseTravelTime) + (soundsystemCost + bandLeaderCost)
   );
   const [bandCostMarkup, setBandCostMarkup] = useState(
@@ -80,18 +79,10 @@ function Calculator() {
     setTotalPriceMarkup(subTotalMarkup + (subTotalMarkup * taxRateMarkup));
   }, [subTotalMarkup, taxRateMarkup]);
 
-
-	// const changeBaseMusicianRateMarkup = (e) => {
-	// 	console.log(setBaseMusicianRateMarkup(e.target.value.includes("%") ? parseInt(e.target.value)/100 : e.target.value))
-	// 	setBaseMusicianRateMarkup(parseInt(e.target.value) || 0)
-	// }
-
 	const changeTaxRate = (e) => {
-		// console.log(setBaseMusicianRateMarkup(e.target.value.includes("%") ? parseInt(e.target.value)/100 : e.target.value))
 		setTaxRate(e.target.value.includes("%") ? (parseInt(e.target.value)/100 || 0 ) : (parseInt(e.target.value)/100 || 0 ))
 	}
 	const changeTaxRateMarkup = (e) => {
-		// console.log(setBaseMusicianRateMarkup(e.target.value.includes("%") ? parseInt(e.target.value)/100 : e.target.value))
 		setTaxRateMarkup(e.target.value.includes("%") ? (parseInt(e.target.value)/100 || 0 ) : (parseInt(e.target.value)/100 || 0 ))
 	}
 
