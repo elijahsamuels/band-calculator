@@ -95,7 +95,6 @@ function Calculator() {
 		setTaxRateMarkup(e.target.value.includes("%") ? (parseInt(e.target.value)/100 || 0 ) : (parseInt(e.target.value)/100 || 0 ))
 	}
 
-	console.log(commissionBonus)
 	const completionBonusReturn = () => {
 		if (commissionBonus > 0) {
 			return <tr>
