@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0px;
+	font-size: 30px;
+	background-color: #FFFFFF;
+}
+
