@@ -1,0 +1,21 @@
+.navbar { 
+	text-decoration: none;
+	background-color: #F1F1F1;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0px;
+	font-size: 20px;
+	background-size: auto;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+
+.active{
+	background-color: #F1F1F1;
+	color: #000000;
+	text-decoration: none;
+}
+
+
