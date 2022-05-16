@@ -43,6 +43,14 @@ function Calculator() {
     bandCostMarkup + (commission1 + commission2) * taxRateMarkup
   );
 
+	const [profitMargin, setprofitMargin] = useState(
+		totalPriceMarkup - totalPrice - (totalPriceMarkup - totalPrice)*(commissionBonus/100)
+	)
+
+	useEffect(() => {
+		setprofitMargin(totalPriceMarkup - totalPrice - (totalPriceMarkup - totalPrice)*(commissionBonus/100))
+	}, [totalPriceMarkup, totalPrice, commissionBonus])
+
   useEffect(() => {
     setBandCost(
       (musicianCount * baseMusicianRate) +
@@ -97,9 +105,38 @@ function Calculator() {
 		} 
 	}
 
+	const priceColors = (value, minValue) => {
+		if (value <= minValue){
+			return <span style={{ color: 'red'}}>{value}</span>
+		} else {
+			return <span style={{ color: 'green'}}>{value}</span>
+		}
+	}
+
+	const bandSpreadsheet = () => {
+		let bandSpread = []
+		for (let i = 1; i <= 20; i++){
+			bandSpread.push(<tr key={`${i} piece band`}>
+				<td align="left">
+					{i} piece band
+				</td>
+				<td align="left">
+					${ Math.floor(((i * baseMusicianRateMarkup) + (baseTravelCostPerMusicianMarkup * baseTravelTime) + soundsystemCostMarkup + bandLeaderCostMarkup + (commission1 + commission2)) * ( taxRate ))  }
+				</td>
+				<td align="left">
+					${ Math.floor(((i * baseMusicianRateMarkup) + (baseTravelCostPerMusicianMarkup * baseTravelTime) + soundsystemCostMarkup + bandLeaderCostMarkup ) * 0.2 ) }
+				</td>
+				<td align="left">
+					${ Math.floor(((i * baseMusicianRateMarkup) + (baseTravelCostPerMusicianMarkup * baseTravelTime) + soundsystemCostMarkup + bandLeaderCostMarkup ) * 0.8 )}
+				</td>
+			</tr>)
+		}
+		return bandSpread
+	}
+
   return (
     <React.Fragment>
-      <h1>Calculator</h1>
+      <h1>Band Calculator</h1>
 
       <table align="center">
 			<thead>
@@ -422,7 +459,9 @@ function Calculator() {
               <strong></strong>
             </td>
             <td align="left">
-              <strong>${Math.floor(totalPriceMarkup - totalPrice - Math.floor((totalPriceMarkup - totalPrice)*(commissionBonus/100)))}</strong>
+              <strong>${priceColors(Math.floor(profitMargin), 500)}</strong>
+              {/* <strong>${priceColors()}</strong> */}
+              {/* <strong>${Math.floor(totalPriceMarkup - totalPrice - Math.floor((totalPriceMarkup - totalPrice)*(commissionBonus/100)))}</strong> */}
             </td>
             <td align="left">
               <p>(Band cost - client payment)</p>
@@ -430,6 +469,24 @@ function Calculator() {
           </tr>
         </tbody>
       </table>
+
+			<h1>Pricing Spreadsheet</h1>
+
+			<table align="center">
+				<thead>
+					<tr>
+						<th align="left" width="125px">Band Size</th>
+            <th align="left" width="125px">Total</th>
+            <th align="left" width="125px">Deposit (20%)</th>
+            <th align="left" width="125px">Balance</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{bandSpreadsheet()}
+				</tbody>
+				
+			</table>
     </React.Fragment>
   );
 }
