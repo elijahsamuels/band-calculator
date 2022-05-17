@@ -6,7 +6,7 @@ import Footer from "./components/footer.js";
 import NavBar from "./components/navbar.js";
 import About from "./pages/about.js";
 import Home from "./pages/home.js";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
