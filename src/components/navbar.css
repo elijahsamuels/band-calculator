@@ -8,9 +8,16 @@
 	background-size: auto;
 }
 
-a:link { text-decoration: none; }
+a:link { 
+	text-decoration: none; 
+	padding: 5px;
+}
 a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
+a:hover { 
+	text-decoration: none; 
+	filter: brightness(1.2)
+
+}
 
 .active{
 	background-color: #F1F1F1;

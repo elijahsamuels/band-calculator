@@ -3,10 +3,8 @@ import React from 'react'
 function Home() {
 	return (
 <React.Fragment>
-		<div>Home page</div>
-		<div>Home page</div>
-		<div>Home page</div>
-		<div>Home page</div>
+		<h1>Home page</h1>
+		<div>Welcome to the band calculator</div>
 </React.Fragment>
 	)
 }

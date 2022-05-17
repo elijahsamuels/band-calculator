@@ -460,8 +460,6 @@ function Calculator() {
             </td>
             <td align="left">
               <strong>${priceColors(Math.floor(profitMargin), 500)}</strong>
-              {/* <strong>${priceColors()}</strong> */}
-              {/* <strong>${Math.floor(totalPriceMarkup - totalPrice - Math.floor((totalPriceMarkup - totalPrice)*(commissionBonus/100)))}</strong> */}
             </td>
             <td align="left">
               <p>(Band cost - client payment)</p>
